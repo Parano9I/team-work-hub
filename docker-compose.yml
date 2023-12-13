@@ -1,0 +1,60 @@
+version: '3.8'
+
+networks:
+  team_work_hub:
+    driver: bridge
+
+services:
+  nginx:
+    image: nginx:1.23.3-alpine
+    restart: always
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - api
+    networks:
+      - team_work_hub
+
+  api:
+    build:
+      context: .
+      dockerfile: ./docker/api/Dockerfile
+    container_name: api
+    volumes:
+      - ./docker/api/xdebug/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - api_data:/var/www/
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - mysql
+    networks:
+      - team_work_hub
+
+  mysql:
+    image: mysql:8.0.32
+    container_name: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    user: '1000:1000'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_DATABASE: 'team_work_hub'
+      MYSQL_PASSWORD: 'root'
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - team_work_hub
+
+volumes:
+  api_data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: './api'
+  mysql_data:
