@@ -1,10 +1,10 @@
 #include ./api/.env
 
 start:
-	docker-compose up -d
+	docker compose up -d
 
 stop:
-	docker-compose down
+	docker compose down
 
 artisan:
 	docker-compose exec api php artisan $(filter-out $@,$(MAKECMDGOALS))
