@@ -7,7 +7,7 @@ stop:
 	docker compose down
 
 artisan:
-	docker-compose exec api php artisan $(filter-out $@,$(MAKECMDGOALS))
+	docker compose exec api php artisan $(filter-out $@,$(MAKECMDGOALS))
 
 #sync-node-modules:
 #	docker-compose cp frontend:/var/www/node_modules/ frontend/
