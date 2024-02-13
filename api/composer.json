@@ -2,13 +2,15 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
-        "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8"
     },
     "require-dev": {
@@ -24,12 +26,15 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "TeamWorkHub\\Modules\\Auth\\": "modules/auth/src/",
+            "TeamWorkHub\\Modules\\Auth\\Database\\Factories\\": "modules/auth/database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "TeamWorkHub\\Modules\\Auth\\Tests\\": "modules/auth/tests"
         }
     },
     "scripts": {

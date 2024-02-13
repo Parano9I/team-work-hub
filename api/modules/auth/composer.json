@@ -1,0 +1,24 @@
+{
+    "name": "parano1a/auth",
+    "autoload": {
+        "psr-4": {
+            "TeamWorkHub\\Modules\\Auth\\": "src/",
+            "TeamWorkHub\\Modules\\Auth\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TeamWorkHub\\Modules\\Auth\\Tests\\": "tests/"
+        }
+    },
+    "authors": [],
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^10.10",
+        "laravel/sanctum": "^3.3",
+        "spatie/laravel-permission": "^6.3"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

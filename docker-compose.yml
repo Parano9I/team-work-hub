@@ -25,7 +25,7 @@ services:
     container_name: api
     volumes:
       - ./docker/api/xdebug/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
-      - api_data:/var/www/
+      - ./api:/var/www
     extra_hosts:
       - "host.docker.internal:host-gateway"
     depends_on:
@@ -51,10 +51,4 @@ services:
       - team_work_hub
 
 volumes:
-  api_data:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: './api'
   mysql_data:
