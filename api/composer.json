@@ -28,13 +28,16 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "TeamWorkHub\\Modules\\Auth\\": "modules/auth/src/",
-            "TeamWorkHub\\Modules\\Auth\\Database\\Factories\\": "modules/auth/database/factories/"
+            "TeamWorkHub\\Modules\\Auth\\Database\\Factories\\": "modules/auth/database/factories/",
+            "TeamWorkHub\\Modules\\Invitation\\": "modules/invitation/src/",
+            "TeamWorkHub\\Modules\\Invitation\\Database\\Factories\\": "modules/invitation/database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "TeamWorkHub\\Modules\\Auth\\Tests\\": "modules/auth/tests"
+            "TeamWorkHub\\Modules\\Auth\\Tests\\": "modules/auth/tests/",
+            "TeamWorkHub\\Modules\\Invitation\\Test\\": "modules/invitation/tests/"
         }
     },
     "scripts": {

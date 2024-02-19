@@ -14,7 +14,8 @@ class RolesSeeder extends Seeder
 
     private array $data = [
         RolesEnum::ADMIN->value => [
-            PermissionsEnum::LIST_ROLES
+            PermissionsEnum::LIST_ROLES,
+            PermissionsEnum::INVITATION_CREATE
         ]
     ];
 
