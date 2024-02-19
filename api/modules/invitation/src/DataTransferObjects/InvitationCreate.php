@@ -2,7 +2,7 @@
 
 namespace TeamWorkHub\Modules\Invitation\DataTransferObjects;
 
-use TeamWorkHub\Modules\Auth\Enums\RolesEnum;
+use Modules\Auth\Enums\RolesEnum;
 
 readonly class InvitationCreate
 {

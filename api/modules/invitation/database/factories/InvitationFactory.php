@@ -3,7 +3,7 @@
 namespace TeamWorkHub\Modules\Invitation\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use TeamWorkHub\Modules\Auth\Enums\RolesEnum;
+use Modules\Auth\Enums\RolesEnum;
 use TeamWorkHub\Modules\Invitation\DataTransferObjects\Casts\Payload;
 use TeamWorkHub\Modules\Invitation\Models\Invitation;
 

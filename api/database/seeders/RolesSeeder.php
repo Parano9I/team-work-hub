@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Modules\Auth\Enums\PermissionsEnum;
+use Modules\Auth\Enums\RolesEnum;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
-use TeamWorkHub\Modules\Auth\Enums\PermissionsEnum;
-use TeamWorkHub\Modules\Auth\Enums\RolesEnum;
 
 class RolesSeeder extends Seeder
 {

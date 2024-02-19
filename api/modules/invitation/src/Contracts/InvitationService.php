@@ -2,7 +2,7 @@
 
 namespace TeamWorkHub\Modules\Invitation\Contracts;
 
-use TeamWorkHub\Modules\Auth\Models\Account;
+use Modules\Auth\Models\Account;
 use TeamWorkHub\Modules\Invitation\DataTransferObjects\InvitationCreate;
 use TeamWorkHub\Modules\Invitation\Models\Invitation;
 

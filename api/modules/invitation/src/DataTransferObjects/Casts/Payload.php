@@ -2,7 +2,7 @@
 
 namespace TeamWorkHub\Modules\Invitation\DataTransferObjects\Casts;
 
-use TeamWorkHub\Modules\Auth\Enums\RolesEnum;
+use Modules\Auth\Enums\RolesEnum;
 
 readonly class Payload
 {

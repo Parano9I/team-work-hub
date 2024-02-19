@@ -4,7 +4,7 @@ namespace TeamWorkHub\Modules\Invitation\Cast;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
-use TeamWorkHub\Modules\Auth\Enums\RolesEnum;
+use Modules\Auth\Enums\RolesEnum;
 use TeamWorkHub\Modules\Invitation\DataTransferObjects\Casts\Payload;
 
 class PayloadCast implements CastsAttributes
