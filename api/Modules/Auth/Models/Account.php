@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Modules\Auth\Database\Factories\AccountFactory;
 use Spatie\Permission\Traits\HasRoles;
-use TeamWorkHub\Modules\Auth\Database\Factories\AccountFactory;
 
 /**
  * @property int $id

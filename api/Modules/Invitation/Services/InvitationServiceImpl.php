@@ -7,14 +7,13 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Modules\Auth\Enums\RolesEnum;
 use Modules\Auth\Models\Account;
-use Modules\Exceptions\CannotInviteSuperAdminInvitationException;
 use Modules\Invitation\Contracts\InvitationService;
 use Modules\Invitation\DTO\Casts\Payload;
 use Modules\Invitation\DTO\InvitationCreate;
 use Modules\Invitation\DTO\MailInvitation;
+use Modules\Invitation\Exceptions\CannotInviteUserWithRoleException;
 use Modules\Invitation\Mail\Invite;
 use Modules\Invitation\Models\Invitation;
-use Spatie\Permission\Exceptions\UnauthorizedException;
 
 class InvitationServiceImpl implements InvitationService
 {
@@ -35,17 +34,14 @@ class InvitationServiceImpl implements InvitationService
     }
 
     /**
-     * @throws CannotInviteSuperAdminInvitationException
-     * @throws UnauthorizedException
+     * @throws CannotInviteUserWithRoleException
      */
     public function invite(Account $sender, InvitationCreate $request): Invitation
     {
         if (RolesEnum::SUPER_ADMIN === $request->role) {
-            throw new CannotInviteSuperAdminInvitationException();
-        } else {
-            if ($sender->hasRole(RolesEnum::ADMIN) && $request->role === RolesEnum::ADMIN) {
-                throw new UnauthorizedException('Cannot invite user with admin role if you role are not super-admin.');
-            }
+            throw new CannotInviteUserWithRoleException('Cannot invite a user with super-admin role.');
+        } else if ($sender->hasRole(RolesEnum::ADMIN) && $request->role === RolesEnum::ADMIN) {
+            throw new CannotInviteUserWithRoleException('Cannot invite user with admin role if you role are not super-admin.');
         }
 
         $invitation = $this->create($request);
@@ -55,7 +51,7 @@ class InvitationServiceImpl implements InvitationService
     }
 
 
-    public function create(InvitationCreate $request): Invitation
+    private function create(InvitationCreate $request): Invitation
     {
         $payload = new Payload($request->firstName, $request->lastName, $request->role);
 
@@ -72,11 +68,11 @@ class InvitationServiceImpl implements InvitationService
         return $invitation;
     }
 
-    public function sendMail(Invitation $invitation, string $activationUrl): void
+    private function sendMail(Invitation $invitation, string $activationUrl): void
     {
         $mailInvitation = new MailInvitation(
-            $invitation->firstName,
-            $invitation->lastName,
+            $invitation->payload->firstName,
+            $invitation->payload->lastName,
             $invitation->email,
             "{$activationUrl}?token={$invitation->token}"
         );
@@ -108,13 +104,13 @@ class InvitationServiceImpl implements InvitationService
         return (new Carbon())->addHours(self::HOURS_UNTIL_INVITE_EXPIRATION);
     }
 
-    public function renew(Invitation $invitation): Invitation
+    public function renew(Invitation $invitation, string $activationUrl): Invitation
     {
-        $invitation->expiration_at = $this->getExpirationAt();
+//        $invitation->expiration_at = $this->getExpirationAt();
         $invitation->token = $this->generateToken();
         $invitation->save();
 
-        $this->sendMail($invitation);
+        $this->sendMail($invitation, $activationUrl);
 
         return $invitation;
     }

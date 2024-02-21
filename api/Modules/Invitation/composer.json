@@ -18,14 +18,12 @@
     "autoload": {
         "psr-4": {
             "Modules\\Invitation\\": "",
-            "Modules\\Invitation\\App\\": "app/",
-            "Modules\\Invitation\\Database\\Factories\\": "database/factories/",
-            "Modules\\Invitation\\Database\\Seeders\\": "database/seeders/"
+            "Modules\\Invitation\\Database\\Factories\\": "Database/Factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Modules\\Invitation\\Tests\\": "tests/"
+            "Modules\\Invitation\\Tests\\": "Tests/"
         }
     }
 }

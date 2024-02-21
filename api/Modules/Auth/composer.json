@@ -18,8 +18,7 @@
     "autoload": {
         "psr-4": {
             "Modules\\Auth\\": "",
-            "Modules\\Auth\\Database\\Factories\\": "Database/Factories/",
-            "Modules\\Auth\\Database\\Seeders\\": "Database/Seeders/"
+            "Modules\\Auth\\Database\\Factories\\": "Database/Factories/"
         }
     },
     "autoload-dev": {

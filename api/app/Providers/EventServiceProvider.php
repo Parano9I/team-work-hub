@@ -6,8 +6,6 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
-use TeamWorkHub\Modules\Invitation\Events\InvitationCreated;
-use TeamWorkHub\Modules\Invitation\Listeners\SendInvitation;
 
 class EventServiceProvider extends ServiceProvider
 {

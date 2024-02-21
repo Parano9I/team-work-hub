@@ -2,6 +2,7 @@
 
 namespace Modules\Invitation\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -55,5 +56,12 @@ class Invitation extends Model
     protected static function newFactory(): Factory
     {
         return InvitationFactory::new();
+    }
+
+    public function isExpired(): bool
+    {
+        $now = new Carbon();
+        $diff = $now->diffInHours($this->expiration_at, false);
+        return $diff > 0;
     }
 }

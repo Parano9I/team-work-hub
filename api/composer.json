@@ -28,16 +28,13 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "Modules\\": "Modules/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/",
-            "TeamWorkHub\\Modules\\Auth\\Tests\\": "modules/auth/tests/",
-            "TeamWorkHub\\Modules\\Invitation\\Test\\": "modules/invitation/tests/"
+            "Tests\\": "tests/"
         }
     },
     "scripts": {

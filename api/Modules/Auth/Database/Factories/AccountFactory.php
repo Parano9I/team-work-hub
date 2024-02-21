@@ -1,6 +1,6 @@
 <?php
 
-namespace TeamWorkHub\Modules\Auth\Database\Factories;
+namespace Modules\Auth\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -22,12 +22,12 @@ class AccountFactory extends Factory
     public function definition(): array
     {
         return [
-            'first_name'        => fake()->firstName(),
-            'last_name'         => fake()->lastName(),
-            'nickname'          => fake()->unique()->userName(),
-            'email'             => fake()->unique()->safeEmail(),
-            'date_of_birth'     => fake()->date(),
-            'password'          => Hash::make('password'),
+            'first_name'    => fake()->firstName(),
+            'last_name'     => fake()->lastName(),
+            'nickname'      => fake()->unique()->userName(),
+            'email'         => fake()->unique()->safeEmail(),
+            'date_of_birth' => fake()->date(),
+            'password'      => Hash::make('password'),
         ];
     }
 }
