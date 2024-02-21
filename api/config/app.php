@@ -168,8 +168,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        TeamWorkHub\Modules\Auth\Providers\AuthModuleServiceProvider::class
     ])->toArray(),
 
     /*

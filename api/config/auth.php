@@ -62,7 +62,7 @@ return [
     'providers' => [
         'accounts' => [
             'driver' => 'eloquent',
-            'model' => \TeamWorkHub\Modules\Auth\Models\Account::class,
+            'model' => \Modules\Auth\Models\Account::class,
         ],
 
         // 'users' => [

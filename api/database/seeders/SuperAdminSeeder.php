@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Modules\Auth\Enums\RolesEnum;
+use Modules\Auth\Models\Account;
 use Spatie\Permission\Models\Role;
-use TeamWorkHub\Modules\Auth\Enums\RolesEnum;
-use TeamWorkHub\Modules\Auth\Models\Account;
 
 class SuperAdminSeeder extends Seeder
 {
